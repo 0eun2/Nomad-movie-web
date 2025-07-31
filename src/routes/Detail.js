@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import "../styles/Detail.css";
 
 function Detail() {
   const { id } = useParams();
@@ -20,39 +21,23 @@ function Detail() {
   }, [id]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return <h1 className="loader">Loading...</h1>;
   }
 
   return (
     <div
-      style={{
-        backgroundImage: `url(${movie.background_image_original})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        padding: "2rem",
-        color: "white",
-        minHeight: "100vh",
-      }}
+      className="detail"
+      style={{ backgroundImage: `url(${movie.background_image_original})` }}
     >
-      <div
-        style={{
-          backgroundColor: "rgba(0,0,0,0.7)",
-          padding: "2rem",
-          borderRadius: "1rem",
-          maxWidth: "900px",
-          margin: "0 auto",
-        }}
-      >
-        <h1 style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>
-          {movie.title_long}
-        </h1>
-        <div style={{ display: "flex", gap: "2rem" }}>
+      <div className="detail__overlay">
+        <h1 className="detail__title">{movie.title_long}</h1>
+        <div className="detail__content">
           <img
             src={movie.large_cover_image}
             alt={movie.title}
-            style={{ width: "300px", borderRadius: "10px" }}
+            className="detail__img"
           />
-          <div style={{ flex: 1 }}>
+          <div className="detail__info">
             <p>
               <strong>⭐ Rating:</strong> {movie.rating} / 10
             </p>
@@ -65,17 +50,15 @@ function Detail() {
             <p>
               <strong>🕐 Runtime:</strong> {movie.runtime} minutes
             </p>
-            <p style={{ marginTop: "1rem" }}>
+            <p className="detail__description">
               {movie.description_full || "No description available."}
             </p>
-
             {movie.yt_trailer_code && (
-              <div style={{ marginTop: "1.5rem" }}>
+              <div className="detail__trailer">
                 <a
                   href={`https://www.youtube.com/watch?v=${movie.yt_trailer_code}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "#00f", textDecoration: "underline" }}
                 >
                   ▶ Watch Trailer
                 </a>

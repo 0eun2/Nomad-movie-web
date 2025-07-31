@@ -1,0 +1,54 @@
+.detail {
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  color: white;
+  min-height: 100vh;
+}
+
+.detail__overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.detail__title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.detail__content {
+  display: flex;
+  gap: 2rem;
+}
+
+.detail__img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+.detail__info {
+  flex: 1;
+}
+
+.detail__description {
+  margin-top: 1rem;
+}
+
+.detail__trailer {
+  margin-top: 1.5rem;
+}
+
+.detail__trailer a {
+  color: #00f;
+  text-decoration: underline;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
